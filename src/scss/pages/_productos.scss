@@ -1,0 +1,230 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.productos{
+    padding: 3rem 0;
+    .grilla{
+        @include m.grid(4, 36px 20px);
+    }
+}
+
+.single-product{
+    height: 100vh;
+    background: url(../../images/bg_single_product.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 2.5rem;
+
+    @include m.flex(center, 0);
+    flex-direction: column;
+
+    .row{
+        @include m.flex(space-between, 27px 0);
+        .col{
+            width: 50%;
+        }
+    }
+    .splide{
+        img{
+            width: 100%;
+        }
+    }
+
+    h2{
+        color: v.$blanco;
+        font-weight: 800;
+    }
+
+    h2, a, p{
+        font-family: v.$urban;
+    }
+
+    #single{
+        img{
+            display: block;
+            max-height: 75vh;
+            object-fit: contain;
+            object-position: center;
+            width: 93%;
+            margin: 0 0 0 auto;
+            aspect-ratio: 1/1;
+            height: auto;
+        }
+        @include m.paginationVertical;
+    }
+    .col{
+        @include m.flex(center, 8.75vh);
+        flex-direction: column;
+    }
+
+    #information{
+        div{
+            width: 100%;
+        }
+        .contenido{
+            div{
+                padding-left: 5%;
+            }
+        }
+        .titulo{
+            padding-block: 16px;
+            background: v.$azul_oscuro;
+            margin-bottom: 16px;
+        }
+        .descripcion{
+            p{
+                color: v.$negro;
+                font-size: 1.25em;
+            }
+            a{
+                margin-top: 12px;
+                color: v.$azul_oscuro;
+                @include m.flex(flex-start, 8px);
+                p{
+                    font-size: 1.05em;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    #thumbnails{
+        width: 100%;
+        margin: 0 auto 0 0;
+        img{
+            aspect-ratio: 1/1;
+            object-fit: contain;
+            object-position: center;
+        }
+        .splide__slide{
+            border: none !important;
+        }
+    }
+
+}
+
+.extra_information{
+    padding: 4rem 0 3.5rem;
+    .splide{
+        height: fit-content;
+        &__list,
+        &__track,
+        &__slide{
+            height: fit-content;
+        }
+    }
+    .row{
+        @include m.flex(space-between, 0);
+        .col{
+            width: 48%;
+
+            p, li, span, b{
+                color: v.$negro;
+                font-family: v.$urban;
+                font-weight: 500;
+                font-size: 1.2em;
+                line-height: 1.3em;
+            }
+
+            h3{
+                font-family: v.$urban;
+                font-weight: 900;
+                margin-bottom: 12px;
+            }
+
+            ul, ol{
+                // margin-top: 10px;
+                margin-left: 21px;
+            }
+
+            li{
+                &:not(:last-child){
+                    margin-bottom: 4px;
+                }
+            }
+
+        }
+
+
+        &:has(.dist_way){
+            margin-top: 3rem;
+        }
+
+    }
+
+    .back{
+        margin-top: 60px;
+        @include m.flex(center, 8px);
+        svg{
+            max-width: 32px;
+        }
+        p{
+            color: v.$negro;
+            font-family: v.$urban;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+    }
+}
+
+.dist_way{
+    padding: 16px;
+    width: 100%;
+    max-width: 500px;
+    margin-inline: auto;
+    background: v.$azul_oscuro;
+    border-radius: 10px;
+    font-family: v.$urban;
+    color: v.$blanco;
+    h2, h3{
+        font-weight: 300;
+        text-align: center;
+        b, strong{
+            font-weight: bold;
+            display: block;
+        }
+    }
+}
+
+.filter{
+    padding: 4rem 0 1rem;
+    &_box{
+        background: v.$azul;
+        border-radius: 6px;
+        min-height: 62px;
+        padding: 10px;
+        @include m.flex(center, 0);
+    }
+    ul{
+        width: 100%;
+        list-style: none;
+        @include m.flex(space-around, 20px);
+        a{
+            display: block;
+            color: v.$blanco;
+            font-family: v.$urban;
+            font-size: 1.3em;
+            font-weight: 500;
+            &.active{
+                color: v.$azul_oscuro;
+                font-weight: bold;
+            }
+        }
+        li{
+            border-radius: 5px;
+            padding: 8px 12px;
+            &:has(.active){
+                background: v.$blanco;
+            }
+        }
+    }
+}
+
+.no-one{
+    font-family: v.$urban;
+    color: v.$negro;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    font-size: 1.3em;
+}

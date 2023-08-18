@@ -1,0 +1,140 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+footer{
+    background: linear-gradient(180deg, v.$negro 0%, v.$azul_oscuro 100%);
+    padding: 3rem 0;
+    .grilla{
+        @include m.grid(2, 0);
+    }
+
+    .sedes_list, .information_nav{
+        border-left: 1px solid v.$blanco;
+    }
+
+    .sedes_list{
+        .row{
+            width: 90%;
+            margin: 0 0 0 auto;
+            @include m.flex(space-between, 0);
+            .col{
+                width: 49.25%;
+            }
+        }
+    }
+    #sedes{
+        .splide__slide{
+            border: none !important;
+            outline: none !important;
+            display: flex;
+            align-items: center;
+        }
+        .info{
+            width: 100%;
+            li{
+                @include m.flex(flex-start, 10px);
+                align-items: flex-start;
+                flex-wrap: nowrap;
+                img{
+                    max-width: 23px;
+                }
+            }
+            h4, h3, p{
+                color: v.$blanco;
+                font-family: v.$urban;
+            }
+            p{
+                font-size: 1.1em;
+                &:nth-child(1){
+                    font-size: 1.25em;
+                }
+            }
+        }
+    }
+    #mapa{
+        img{
+            display: block;
+            border-radius: 6px;
+            aspect-ratio: 1/1;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
+            max-width: 290px;
+            margin-inline: auto;
+        }
+    }
+
+    .information{
+        width: 100%;
+        margin: 0;
+        @include m.flex(space-between, 0);
+        align-items: stretch;
+        &>div{
+            width: 50%;   
+        }
+        &_nav{
+            @include m.flex(center, 0);
+            ul{
+                @include m.flex(center, 16px);
+                align-items: flex-start;
+                flex-direction: column;
+                width: fit-content;
+                margin-inline: auto;
+                li{
+                    text-align: left;
+                }
+                a{
+                    font-size: 1.3em;
+                }
+            }
+        }
+        &_description{
+            .contenido{
+                width: 96%;
+                max-width: 290px;
+            }
+            img{
+                width: 100%;
+                max-width: 240px;
+                margin-bottom: 20px;
+            }
+            p{
+                text-align: justify;
+                color: v.$blanco;
+                font-family: v.$urban;
+            }
+        }
+    }
+
+    .contenedor:has(.follow_me){
+        margin-top: 30px;
+    }
+
+    .follow_me{
+        @include m.flex(center, 10px);
+        p{
+            color: v.$blanco;
+            font-family: v.$urban;
+        }
+        ul{
+            list-style: none;
+            @include m.flex(center, 10px);
+            svg{
+                max-width: 35px;
+            }
+        }
+    }
+}
+
+.whatsapp{
+    position: fixed;
+    bottom: 36px;
+    right: 36px;
+    z-index: 10;
+    width: 70px;
+    height: 70px;
+
+    img{
+        @include m.contain(100%);
+    }
+}

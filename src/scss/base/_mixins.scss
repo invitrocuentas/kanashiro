@@ -1,0 +1,188 @@
+@use 'variables' as v;
+
+/** Media Queries **/
+@mixin telefono {
+    @media (max-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin tabletlg {
+    @media (max-width: v.$tablet_lg) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (max-width: v.$desktop) {
+        @content;
+    }
+}
+@mixin desktoplg {
+    @media (max-width: v.$desktop_lg) {
+        @content;
+    }
+}
+@mixin television {
+    @media (max-width: v.$television) {
+        @content;
+    }
+}
+
+@mixin text-shadow {
+    text-shadow: 1px 3px 15px #00000087;
+}
+
+@mixin transition {
+    transition: all .25s ease;
+}
+
+@mixin flex($prop, $gap){
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: $prop;
+    gap: $gap;
+}
+
+@mixin grid($n, $gap){
+    display: grid;
+    grid-template-columns: repeat($n, 1fr);
+    grid-gap: $gap;
+}
+
+@mixin shadow($x, $y, $desenfocar, $color) {
+    box-shadow: $x $y $desenfocar $color;
+}
+
+@mixin max_width($n){
+    width: 100%;
+    max-width: $n;
+}
+
+@mixin centrar_horizontal{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin centrar_vertical{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin hr($color){
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: $color;
+}
+
+@mixin contain($size){
+    display: block;
+    width: $size;
+    height: $size;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    object-position: center;
+}
+
+@mixin boton{
+    border-radius: 22px;
+    font-size: 1rem;
+    min-height: 40px;
+    color: v.$blanco;
+    padding: 8px 20px;
+    font-family: v.$medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+@mixin limit($n){
+    display: -webkit-box;
+    -webkit-line-clamp: $n;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin line($bottom, $color, $mxw, $height){
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        max-width: $mxw;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: - $bottom;
+        height: $height;
+        border-radius: 0;
+        background: $color;
+    }
+}
+
+@mixin forma_fondo(){
+    &::before, &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@mixin pseudo100(){
+    &::before{
+        position: absolute;
+        content: ''; 
+        width: 100%;
+        height: 100%;
+        inset: 0;
+    }
+}
+
+@mixin gigant_letters($color, $fz){
+    color: $color;
+    position: absolute;
+    user-select: none;
+    -webkit-user-drag: none;
+    display: block;
+    font-size: $fz;
+    line-height: 1em;
+    width: 100%;
+    text-align: center;
+    font-family: v.$garamond;
+    top: 0;
+}
+
+@mixin paginationVertical{
+    .splide__pagination{
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        bottom: auto;
+        right: auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-direction: column;
+
+        &__page{
+            transform: none !important;
+            opacity: 1 !important;
+            width: 25px;
+            height: 25px;
+            background: none;
+            border: 1px solid v.$blanco;
+            &.is-active{
+                background: v.$blanco;
+            }
+        }
+    }
+}

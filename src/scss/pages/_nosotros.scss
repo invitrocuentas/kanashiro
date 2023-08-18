@@ -1,0 +1,137 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.quienes_somos{
+    background: v.$negro;
+    padding: 5rem 0;
+
+    &>div{
+        &:not(:last-child){
+            margin-bottom: 10vh;
+        }
+    }
+
+    .mision, .vision{
+        p{
+            font-family: v.$urban;
+            font-weight: 400;
+            color: v.$blanco;
+            font-size: 1.3em;
+            line-height: 1.25em;
+            text-align: justify;
+        }
+        span{
+            @include m.gigant_letters(rgba($color: #444444, $alpha: .4), 7.5vw);
+            position: relative;
+            inset: 0;
+            text-align: left;
+            @include m.flex(flex-start, 25px);
+
+            img{
+                @include m.contain(100px);
+            }
+        }
+        .row{
+            @include m.flex(space-between, 0);
+            .contenido{
+                width: 57.5%;
+                p{
+                    margin-top: 10px;
+                    padding-left: 6.5%;
+                }
+            }
+            .imagen{
+                width: 39%;
+                img{
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .somos_descripcion{
+
+        .contenedor{
+            padding-inline: 2.5%;
+        }
+
+        .row{
+            @include m.flex(space-between, 0);
+            position: relative;
+        }
+        img{
+            width: 100%;
+            border-radius: 25px;
+        }
+        p{
+            text-align: justify;
+
+            line-height: 1.275em;
+
+            font-family: v.$urban;
+            font-size: 1.45em;
+            font-weight: 400;
+            b, strong{
+                font-weight: 900;
+            }
+        }
+        .col{
+            &:nth-child(1){
+                width: 45%;
+            }
+            &:nth-child(2){
+                width: 60%;
+                position: absolute;
+                top: 7%;
+                right: 0;
+            }
+            div{
+                width: 100%;
+
+                background: v.$blanco;
+                border-radius: 10px;
+                padding: 4rem 2.5rem;
+            }
+        }
+    }
+
+}
+
+.valores{
+    background-color: v.$azul_oscuro;
+    border-radius: 14px;
+    padding: 2rem 5%;
+
+    h2{
+        color: v.$blanco;
+        font-family: v.$urban;
+        font-weight: bold;
+        text-align: center;
+
+        position: relative;
+        width: fit-content;
+        margin: 0 auto 3rem;
+
+        &::before{
+            position: absolute;
+            content: '';
+            height: 2px;
+            width: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -5px;
+            background: v.$blanco;
+        }
+    }
+
+    .grilla{
+        // @include m.grid(4, 10%);
+        @include m.flex(center, 20px 8%);
+        align-items: flex-start;
+
+        width: 100%;
+        margin-inline: auto;
+        max-width: 1100px;
+    }
+
+}

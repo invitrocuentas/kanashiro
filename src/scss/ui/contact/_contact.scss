@@ -1,0 +1,88 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.contactanos{
+    min-height: 100vh;
+    padding-block: 6rem;
+    @include m.flex(center, 0);
+    flex-direction: column;
+
+    margin-top: 2rem;
+    background: url(../../images/bg_contacto.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .row{
+        @include m.flex(space-between, 0);
+    }
+
+    .col{
+        width: 49%;
+
+        h2{
+            font-family: v.$urban;
+            color: v.$blanco;
+            font-size: 5em;
+            position: relative;
+            @include m.line(8px, v.$blanco, 215px, 5px);
+            &::before{
+                left: auto;
+                transform: none;
+            }
+        }
+
+    }
+
+}
+
+.box_form{
+    background: v.$azul_oscuro;
+    border-radius: 12px;
+    width: min(100%, 600px);
+    margin-inline: auto;
+    padding: 2rem;
+    p{
+        color: v.$blanco;
+        font-family: v.$urban;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    form{
+        width: 100%;
+        &>p{
+            width: 100%;
+        }
+        span{
+            width: 100%;
+        }
+        input{
+            min-height: 44px;
+            border: none;
+            font-size: .98em;
+            &[type="submit"]{
+                border-radius: 10px;
+                display: block;
+                background: v.$azul;
+                color: v.$blanco;
+                padding-inline: 20px;
+                margin: 0 auto;
+            }
+        }
+        input:not([type="submit"]), textarea{
+            width: 100%;
+            border-radius: 10px;
+            background: v.$blanco;
+            color: v.$negro;
+            padding-inline: 12px;
+            
+            &::placeholder{
+                color: v.$negro;
+            }
+        }
+        textarea{
+            resize: none;
+            padding-block: 12px;
+            max-height: 120px;
+        }
+    }
+}

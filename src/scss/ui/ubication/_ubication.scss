@@ -1,0 +1,77 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.ubicanos{
+    background-color: v.$negro;
+    padding: 5rem 0;
+    overflow: hidden;
+    span{
+        @include m.gigant_letters(rgba($color: #989898, $alpha: .25), 12vw);
+        left: 45%;
+        top: 3%;
+    }
+    .row{
+        @include m.flex(space-between, 0);
+        .col{
+            &:nth-child(1){
+                width: 48.5%;
+            }
+            &:nth-child(2){
+                width: 42%;
+            }
+        }
+    }
+
+    #photo{
+        @include m.paginationVertical;
+        img{
+            display: block;
+            border-radius: 17px;
+            width: 90%;
+            margin: 0 0 0 auto;
+        }
+    }
+    h2{
+        font-family: v.$urban;
+        color: v.$blanco;
+        position: relative;
+        @include m.line(8px, v.$blanco, 100px, 5px);
+        margin-bottom: 60px;
+        &::before{
+            left: 0;
+            transform: none;
+        }
+    }
+
+    .info{
+        max-width: 388px;
+        li{
+            width: 100%;
+            @include m.flex(flex-start, 12px);
+            align-items: flex-start;
+            flex-wrap: nowrap;
+            &:not(:last-child){
+                margin-bottom: 17px;
+            }
+            img{
+                max-width: 32px;
+                margin-top: 3px;
+                object-fit: contain;
+                object-position: center;
+            }
+            h3, p{
+                font-family: v.$urban;
+                color: v.$blanco;
+            }
+            h3{
+                font-weight: 700;
+                margin-bottom: 5px;
+            }
+            p{
+                font-size: 1.3em;
+                font-weight: 400;
+                line-height: 1.3em;
+            }
+        }
+    }
+}

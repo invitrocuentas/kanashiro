@@ -1,0 +1,44 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.thanks{
+    height: 100vh;
+    background: url(../../images/bg_gracias.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    @include m.flex(center, 0);
+    flex-direction: column;
+
+    h1, p, a{
+        color: v.$blanco;
+        text-align: center;
+        font-family: v.$urban;
+    }
+    a{
+        display: block;
+        &.back{
+            margin: 30px auto 40px;
+            text-align: center;
+            background: v.$blanco;
+            border: 1px solid v.$blanco;
+            width: fit-content;
+            color: v.$azul;
+            padding: 6px 10px;
+            font-size: 1.4em;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+    }
+    h1{
+        font-weight: 900;
+    }
+    p{
+        font-weight: 400;
+        font-size: 1.3em;
+    }
+    ul{
+        margin-top: 20px;
+        @include m.flex(center, 16px);
+    }
+}

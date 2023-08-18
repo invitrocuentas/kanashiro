@@ -1,0 +1,51 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.product{
+    width: 100%;
+    border-radius: 8px;
+    @include m.shadow(0,4px,4px,rgba($color: #000, $alpha: .25));
+    padding-bottom: 1.5rem;
+    overflow: hidden;
+    &>div{
+        width: 100%;
+    }
+    img{
+        width: 100%;
+        display: block;
+        margin-inline: auto;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        object-position: center;
+    }
+    a, p{
+        font-family: v.$urban;
+    }
+    p{
+        font-weight: bold;
+        color: v.$negro;
+        font-size: 1.35em;
+    }
+    a{
+        font-size: 1.05em;
+        font-weight: 700;
+        margin: 10px auto 0;
+        color: v.$blanco;
+        background: v.$azul_oscuro;
+        border: 2px solid v.$azul_oscuro;
+        border-radius: 6px;
+        width: fit-content;
+        min-height: 36px;
+        @include m.flex(center, 0);
+        padding-inline: 10px;
+        &:hover{
+            background: transparent;
+            color: v.$azul_oscuro;
+        }
+    }
+    &_text{
+        margin-top: 14px;
+        padding-inline: 1.25rem;
+        text-align: center;
+    }
+}

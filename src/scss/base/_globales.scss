@@ -1,0 +1,83 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&display=swap');
+
+html{
+    overflow-x: hidden;
+}
+
+body{
+    font-size: 16px;
+}
+
+picture{
+    display: block;
+}
+
+.w-100{width: 100%;}
+.h-100{height: 100%;}
+.wh-100{
+    @extend .w-100;
+    @extend .h-100;
+}
+
+img{
+    vertical-align: top;
+    height: auto;
+}
+
+.p-relative{
+    position: relative;
+}
+
+.row.start{
+    align-items: flex-start !important;
+}
+
+.row.stretch{
+    align-items: stretch !important;
+}
+
+.p-absolute{
+    position: absolute;
+}
+
+a,button,input[type="submit"]{
+    cursor: pointer;
+    @include m.transition;
+}
+
+main, section, header, footer, aside{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+textarea, button, input, select, option {
+    outline: none;
+}
+
+.contenedor{
+    width: min(88%, 1500px);
+    margin-inline: auto;
+    &.xl{
+        width: min(94%, 1760px);
+    }
+}
+
+video{
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.hidden{
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    position: absolute;
+}

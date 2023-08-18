@@ -1,0 +1,69 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.product_category{
+    position: relative;
+    display: block;
+    padding: 0 6.5% 2rem;
+
+    @include m.transition;
+    border-radius: 10px;
+
+    div{
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+
+        &::before{
+            position: absolute;
+            content: '';
+            background: v.$gris;
+            bottom: 0;
+            width: 100%;
+            aspect-ratio: 16/9;
+            z-index: 2;
+        }
+    }
+    img{
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        object-position: bottom right;
+
+        @include m.transition;
+    }
+    p{
+        font-family: v.$urban;
+        font-weight: 800;
+        color: v.$negro;
+        text-align: center;
+        margin-top: 14px;
+        font-size: 1.8em;
+    }
+
+    a{
+        @include m.transition;
+        opacity: 0;
+        text-align: center;
+        @include m.flex(center, 7px);
+        flex-wrap: nowrap;
+        margin-top: 20px;
+        p{
+            font-size: 15px;
+            color: v.$azul_oscuro;
+            margin: 0;
+        }
+    }
+
+    &:hover{
+        @include m.shadow(0, 4px, 4px, rgba($color: v.$negro, $alpha: .25));
+        img{
+            transform: scale(1.1);
+        }
+        a{
+            opacity: 1;
+        }
+    }
+}

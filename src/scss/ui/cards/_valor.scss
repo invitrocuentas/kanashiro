@@ -1,0 +1,25 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.valor{
+    width: 100%;
+    max-width: 195px;
+    &>div{
+        width: 100%;
+    }
+    img{
+        border-radius: 50%;
+    }
+    &_txt{
+        margin-top: 20px;
+        max-width: 150px;
+        margin-inline: auto;
+    }
+    p{
+        line-height: 1.3em;
+        font-family: v.$urban;
+        font-weight: 400;
+        text-align: center;
+        color: v.$blanco;
+    }
+}

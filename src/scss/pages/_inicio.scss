@@ -1,0 +1,299 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+main{
+    background: url(../../images/fondo.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 105vh;
+    position: relative;
+    @include m.pseudo100;
+    &::before{
+        z-index: 1;
+        opacity: 0.9;
+        background: linear-gradient(135deg, #0425AC 0%, #1B263A 28.65%, #0425AC 68.75%, #1B263A 100%);
+    }
+    .contenedor{
+        position: relative;
+        z-index: 3;
+    }
+
+    .splide{
+        &__pagination{
+            right: -2em;
+            &__page{
+                transform: none !important;
+                opacity: 1 !important;
+                width: 25px;
+                height: 25px;
+                background: none;
+                border: 1px solid v.$blanco;
+                &.is-active{
+                    background: v.$blanco;
+                }
+            }
+        }
+    }
+
+    .slide{
+        position: relative;
+        .title{
+            width: 100%;
+            background: v.$blanco;
+            padding: 16px 26px;
+            position: absolute;
+            left: 0;
+            h2{
+                color: v.$azul;
+                font-family: v.$urban;
+                font-weight: 900;
+                font-size: 5.2vw;
+            }
+
+            &_1{
+                top: 20%;
+                max-width: 47.5%;
+            }
+            &_2{
+                top: 23%;
+                max-width: 48%;
+            }
+            &_3{
+                top: 27%;
+                max-width: 58%;
+            }
+
+        }
+
+        .images{
+            bottom: 0;
+            right: 0;
+            width: 60%;
+
+            img{
+                position: absolute;
+                @include m.transition;
+
+                &.cemento{
+                    top: 45%;
+                    transform: translateY(-50%);
+                    &_1{
+                        left: -13%;
+                    }
+                    &_2{
+                        left: 2%;
+                    }
+                    &_3{
+                        left: 15%;
+                    }
+                    &_4{
+                        left: 30%;
+                    }
+                }
+
+                &.ladrillo{
+                    top: 45%;
+                    transform: translateY(-50%);
+                    &_1{
+                        left: 0;
+                    }
+                    &_2{
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    &_3{
+                        right: 0;
+                    }
+                }
+
+                &.fierros{
+                    bottom: 0;
+                    left: 20%;
+                }
+            }
+
+            &:hover{
+                img{
+                    &.cemento{
+                        &_1{
+                            left: -15%;
+                        }
+                        &_2{
+                            left: 8%;
+                        }
+                        &_3{
+                            left: 25%;
+                        }
+                        &_4{
+                            left: 45%;
+                        }       
+                    }
+                    &.fierros{
+                        transform: scale(1.26);
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+.valores_contenedor{
+    margin-top: -9vh;
+    position: relative;
+    z-index: 4;
+    padding-bottom: 4rem;
+}
+
+.sedes{
+    padding: 5rem 0;
+    h2{
+        color: v.$azul;
+        position: relative;
+        text-align: center;
+        font-family: v.$urban;
+        font-weight: 700;
+        @include m.line(8px, v.$azul, 180px, 5px);
+        margin-bottom: 4rem;
+    }
+    .contenedor{
+        position: relative;
+    }
+    span{
+        @include m.gigant_letters(rgba($color: #444444, $alpha: .2), 12vw);
+    }
+    .grilla{
+        @include m.grid(3, 28px);
+    }
+}
+
+.nosotros{
+    height: 100vh;
+    position: relative;
+    @include m.flex(center, 0);
+    flex-direction: column;
+    padding-block: 15vh;
+    h2{
+        width: 100%;
+        color: v.$blanco;
+        position: relative;
+        text-align: center;
+        font-family: v.$urban;
+        font-weight: 700;
+        @include m.line(8px, v.$blanco, 180px, 5px);
+        margin-bottom: 4rem;
+    }
+    span{
+        @include m.gigant_letters(rgba($color: #EFEFEF, $alpha: .2), 12vw);
+    }
+    .splide{
+        position: absolute;
+        inset: 0;
+        img{
+            object-fit: cover;
+            object-position: right;
+        }
+    }
+    &>.contenedor{
+        position: relative;
+        z-index: 2;
+        @include m.flex(space-between, 30px);
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .contenido{
+        width: 100%;
+        max-width: 475px;
+        margin: 0 0 50px 0;
+        p{
+            color: v.$blanco;
+            font-family: v.$urban;
+            line-height: 1.2em;
+        }
+        &>p{
+            font-weight: 400;
+            font-size: 1.45em;
+            line-height: 1.3em;
+        }
+        a{
+            margin-top: 20px;
+            @include m.flex(flex-start, 10px);
+            p{
+                font-weight: 600;
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+
+.categorias{
+    padding-block: 7.75rem;
+    position: relative;
+    .contenedor{
+        position: relative;
+    }
+    h2{
+        width: 100%;
+        color: v.$azul;
+        position: relative;
+        text-align: center;
+        font-family: v.$urban;
+        font-weight: 700;
+        @include m.line(8px, v.$azul, 180px, 5px);
+        margin-bottom: 8rem;
+    }
+    span{
+        @include m.gigant_letters(rgba($color: #989898, $alpha: .25), 12vw);
+        // top: 3.5vw;
+    }
+    .grilla{
+        margin-top: 30px;
+        @include m.grid(4, 20px 0.5%);
+    }
+}
+
+.respaldo{
+    background: #E5E5E5;
+    padding-block: 4.5rem;
+    .contenido{
+        width: min(100%, 700px);
+        margin: 0 auto;
+        text-align: center;
+        font-family: v.$urban;
+    }
+    h3{
+        font-weight: 800;
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+        @include m.line(8px, v.$negro, 90%, 3px);   
+        margin-bottom: 1.6rem;
+    }
+    p{
+        font-weight: 400;
+        font-size: 1.3em;
+    }
+
+    .splide{
+        margin-top: 38px;
+        &__track{
+            padding: 6px !important;
+        }
+        .logo{
+            width: 100%;
+            aspect-ratio: 1/1;
+            border: none;
+            background: v.$blanco;
+            overflow: hidden;
+            border-radius: 50%;
+            img{
+                width: 100%;
+                height: 100%;
+                border: none;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+    }
+}
