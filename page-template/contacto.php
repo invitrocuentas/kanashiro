@@ -92,4 +92,13 @@ $wp_query = new WP_Query(array(
 
 <?php get_template_part('inc/mapas'); ?>
 
+<div class="w-100 contacto_info_responsive">
+    <div class="contenedor">
+        <div class="box_form">
+            <p>Completa el siguiente formulario te enviaremos la información que necesitas.</p>
+            <?php echo do_shortcode('[contact-form-7 id="99cfef3" title="Formulario de Contacto"]'); ?>
+        </div>
+    </div>
+</div>
+
 <?php get_footer(); ?>

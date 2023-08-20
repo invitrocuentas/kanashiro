@@ -184,6 +184,11 @@ main{
     }
     .grilla{
         @include m.grid(3, 28px);
+        @include m.tabletlg{
+            @include m.grid(1, 25px);
+            max-width: 380px;
+            margin-inline: auto;
+        }
     }
 }
 
@@ -270,6 +275,9 @@ main{
     @include m.desktoplg{
         padding: 5rem 0 4.5rem;
     }
+    @media (max-width: 850px){
+        padding: 4rem 0 3.25rem;
+    }
     .contenedor{
         position: relative;
     }
@@ -282,6 +290,10 @@ main{
         font-weight: 700;
         @include m.line(8px, v.$azul, 180px, 5px);
         margin-bottom: 8rem;
+        @media (max-width: 850px){
+            margin-bottom: 5rem;
+            @include m.line(8px, v.$azul, 130px, 4px);
+        }
     }
     span{
         @include m.gigant_letters(rgba($color: #989898, $alpha: .25), 12vw);
@@ -290,12 +302,24 @@ main{
     .grilla{
         margin-top: 30px;
         @include m.grid(4, 20px 0.5%);
+        @media (max-width: 850px){
+            @include m.grid(2, 0 1.5%);
+            max-width: 600px;
+            margin-inline: auto;
+        }
+        @include m.tablet{
+            @include m.grid(1, 30px);
+            max-width: 300px;
+        }
     }
 }
 
 .respaldo{
     background: #E5E5E5;
     padding-block: 4.5rem;
+    @include m.tablet{
+        padding-block: 2rem;
+    }
     .contenido{
         width: min(100%, 700px);
         margin: 0 auto;
@@ -313,8 +337,19 @@ main{
         position: relative;
         width: fit-content;
         margin: 0 auto;
-        @include m.line(8px, v.$negro, 90%, 3px);   
         margin-bottom: 1.6rem;
+
+        @media (min-width: v.$tablet){
+            @include m.line(8px, v.$negro, 90%, 3px);
+        }
+
+        @include m.tablet{
+            color: v.$azul;
+            font-size: 2em;
+            text-decoration: underline;
+            max-width: 280px;
+            margin-bottom: 0;
+        }
     }
     p{
         font-weight: 400;
@@ -325,12 +360,19 @@ main{
         @include m.desktoplg{
             font-size: 1.08em;
         }
+        @include m.tablet{
+            display: none;
+        }
     }
 
     .splide{
         margin-top: 38px;
+        @include m.telefono{
+            max-width: 250px;
+            margin-inline: auto;
+        }
         &__track{
-            padding: 6px !important;
+            padding: 8px 2.5% !important;
         }
         .logo{
             width: 100%;
@@ -345,6 +387,25 @@ main{
                 border: none;
                 object-fit: contain;
                 object-position: center;
+            }
+        }
+        &__arrow{
+            background: v.$azul_oscuro;
+            opacity: 1 !important;
+            svg{
+                fill: v.$blanco;
+            }
+            &--prev{
+                left: -1em;
+                @include m.telefono{
+                    left: -2.2em;
+                }
+            }
+            &--next{
+                right: -1em;
+                @include m.telefono{
+                    right: -2.2em;
+                }
             }
         }
     }

@@ -8,6 +8,7 @@ header{
     @include m.transition;
     @include m.tablet{
         background: v.$blanco;
+        @include m.shadow(0, 3px, 6px, rgba(0,0,0,.5));
     }
     #toggle{
         display: none;
@@ -49,6 +50,7 @@ header{
         }
         @include m.telefono{
             width: min(180px, 180px);
+            margin: .7rem auto;
         }
     }
     nav{
@@ -72,12 +74,12 @@ header{
 
 header.scrolled{
     a{
-        color: v.$azul;
+        color: v.$azul !important;
     }
     li.current_page_item{
         a{
             background: v.$azul_oscuro;
-            color: v.$blanco;
+            color: v.$blanco !important;
         }
     }
 }
@@ -91,7 +93,7 @@ header.scrolled{
     background-size: cover;
     background-position: bottom right;
 
-    @include m.desktoplg{
+    @include m.television{
         height: 60vh;
     }
     @include m.tablet{

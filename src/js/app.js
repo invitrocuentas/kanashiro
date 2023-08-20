@@ -1,2 +1,3 @@
-import './slider.js';
+import './form.js';
 import './header.js';
+import './slider.js';

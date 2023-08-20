@@ -12,6 +12,7 @@
         <span>Ub&iacute;canos</span>
         <div class="row">
             <div class="col">
+                <h2>Ub&iacute;canos</h2>
                 <div class="splide" id="photo">
                     <div class="splide__track">
 		                <ul class="splide__list">

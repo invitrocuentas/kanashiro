@@ -2,7 +2,7 @@
 @use "base/variables" as v;
 
 .thanks{
-    height: 100vh;
+    height: 105vh;
     background: url(../../images/bg_gracias.jpg) no-repeat;
     background-size: cover;
     background-position: center;
@@ -28,6 +28,12 @@
             font-size: 1.4em;
             font-weight: 700;
             border-radius: 5px;
+            @include m.desktoplg{
+                font-size: 1.25em;
+            }
+            @include m.telefono{
+                font-size: 1.125em;
+            }
         }
     }
     h1{
@@ -36,9 +42,34 @@
     p{
         font-weight: 400;
         font-size: 1.3em;
+        @include m.television{
+            font-size: 1.2em;
+        }
+        @include m.desktoplg{
+            font-size: 1.1em;
+        }
+        @include m.telefono{
+            font-size: 1em;
+        }
     }
     ul{
         margin-top: 20px;
         @include m.flex(center, 16px);
+
+        @include m.television{
+            svg{
+                @include m.contain(36px);
+            }
+        }
+        @include m.desktoplg{
+            svg{
+                @include m.contain(33px);
+            }
+        }
+        @include m.telefono{
+            svg{
+                @include m.contain(29px);
+            }
+        }
     }
 }

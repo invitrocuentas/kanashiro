@@ -53,7 +53,7 @@ $taxonomy = 'productosgenero';
 <div class="filter_responsive w-100">
     <div class="contenedor">
         <details>
-            <summary><i class="fas fa-times"></i> Todos los productos</summary>
+            <summary><i class="fas fa-times"></i><i class="fas fa-minus"></i> Todos los productos</summary>
             <div class="w-100">
                 <ul>
                     <li>

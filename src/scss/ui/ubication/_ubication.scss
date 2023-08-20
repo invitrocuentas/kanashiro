@@ -5,20 +5,62 @@
     background-color: v.$negro;
     padding: 5rem 0;
     overflow: hidden;
+    @include m.tablet{
+        padding: 2.25rem 0 4rem;
+    }
+    #ubication{
+        @include m.tablet{
+            padding-bottom: 2.5em;
+            .splide__pagination{
+                bottom: -0.5em;
+                &__page{
+                    transform: scale(1) !important;
+                    opacity: 1 !important;
+                    width: 10px;
+                    height: 10px;
+                    &.is-active{
+                        background: v.$azul;
+                    }
+                }
+            }
+        }
+    }
     span{
         @include m.gigant_letters(rgba($color: #989898, $alpha: .25), 12vw);
         left: 45%;
         top: 3%;
+        @include m.tablet{
+            display: none;
+        }
     }
     .row{
         @include m.flex(space-between, 0);
         .col{
             &:nth-child(1){
                 width: 48.5%;
+                @media (min-width: v.$tablet){
+                    h2{
+                        display: none;
+                    }
+                }
             }
             &:nth-child(2){
                 width: 42%;
+                @include m.tablet{
+                    h2{
+                        display: none;
+                    }
+                }
             }
+            @include m.tablet{
+                width: 100% !important;
+            }
+        }
+        @include m.tablet{
+            width: 100%;
+            max-width: 432px;
+            margin-inline: auto;
+            gap: 24px;
         }
     }
 
@@ -29,6 +71,29 @@
             border-radius: 17px;
             width: 90%;
             margin: 0 0 0 auto;
+            @include m.tablet{
+                width: 100%;
+                margin: 0 auto;
+                border-radius: 10px;
+            }
+        }
+        @include m.tablet{
+            .splide__arrow{
+                background: v.$azul_oscuro;
+                opacity: 1 !important;
+                &--prev{
+                    left: -1em;
+                }
+                &--next{
+                    right: -1em;
+                }
+                svg{
+                    fill: v.$blanco;
+                }
+                &[disabled]{
+                    display: none;
+                }
+            }
         }
     }
     h2{
@@ -40,6 +105,17 @@
         &::before{
             left: 0;
             transform: none;
+        }
+        @include m.tablet{
+            text-align: center;
+            width: fit-content;
+            margin-inline: auto;
+            margin-bottom: 30px;
+            @include m.line(2px, v.$blanco, 100%, 3px);
+            &::before{
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     }
 

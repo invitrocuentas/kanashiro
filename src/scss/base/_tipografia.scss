@@ -13,6 +13,9 @@ h1{
     @include m.desktoplg{
         font-size: 2.85em;
     }
+    @include m.tablet{
+        font-size: 2.35em;
+    }
 }
 h2{
     font-size: 3.25em;
@@ -23,6 +26,9 @@ h2{
     @include m.desktoplg{
         font-size: 2.55em;
     }
+    @include m.tablet{
+        font-size: 1.9em;
+    }
     &.up{
         font-size: 3.6em;
     }
@@ -31,6 +37,9 @@ h2{
         @include m.desktoplg{
             font-size: 1.8em;
         }
+        @include m.tablet{
+            font-size: 1.55em;
+        }
     }
 }
 h3{
@@ -38,11 +47,26 @@ h3{
     line-height: 1.2em;
     &.up{
         font-size: 2em;
+        @include m.desktoplg{
+            font-size: 1.7em;
+        }
+        @include m.tabletlg{
+            font-size: 1.375em;
+        }
+        @include m.tablet{
+            font-size: 1.6em;
+        }
     }
     @include m.desktoplg{
         font-size: 1.35em;
     }
+    @include m.tablet{
+        font-size: 1.1em;
+    }
 }
 p{
     font-size: 1.1rem;
+    @include m.tablet{
+        font-size: 1rem;
+    }
 }

@@ -16,10 +16,27 @@ section:has(#localizaciones){
 
 .contacto_info{
     padding: 5rem 0;
+    @include m.tablet{
+        padding: 2.65rem 0 1.9rem;
+    }
+    &_responsive{
+        padding: 2.5rem 0;
+    }
+    @media (min-width: v.$tablet){
+        &_responsive{
+            display: none;
+        }
+    }
     .row{
         @include m.flex(space-between, 0);
         .col{
             width: 50%;
+            @include m.tablet{
+                width: 100%;
+                &:has(.box_form){
+                    display: none;
+                }
+            }
         }
     }
     .contenido{
@@ -33,6 +50,9 @@ section:has(#localizaciones){
         @include m.hr(v.$negro);
         height: 1px;
         margin-block: 30px;
+        @include m.tablet{
+            margin-block: 14px;
+        }
     }
     ul{
         list-style: none;
@@ -43,6 +63,9 @@ section:has(#localizaciones){
 
             &:not(:last-child){
                 margin-bottom: 14px;
+                @include m.tablet{
+                    margin-bottom: 8px;
+                }
             }
             img{
                 @include m.contain(24px);

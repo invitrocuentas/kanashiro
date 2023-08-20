@@ -58,6 +58,9 @@
             color: v.$azul_oscuro;
             margin: 0;
         }
+        @include m.tablet{
+            display: none;
+        }
     }
 
     &:hover{
@@ -67,6 +70,12 @@
         }
         a{
             opacity: 1;
+        }
+    }
+    @include m.tablet{
+        @include m.shadow(0, 4px, 4px, rgba($color: v.$negro, $alpha: .25));
+        img{
+            transform: scale(1.1);
         }
     }
 }

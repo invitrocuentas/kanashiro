@@ -5,6 +5,13 @@
     background: v.$negro;
     padding: 5rem 0;
 
+    @include m.desktoplg{
+        padding: 5rem 0 3rem;
+    }
+    @include m.tabletlg{
+        padding: 2.5rem 0;
+    }
+
     &>div{
         &:not(:last-child){
             margin-bottom: 10vh;
@@ -33,6 +40,16 @@
             text-align: left;
             @include m.flex(flex-start, 25px);
 
+            @include m.tabletlg{
+                font-size: 10vw;
+            }
+            @include m.tablet{
+                font-size: 11vw;
+            }
+            @include m.telefono{
+                font-size: 12vw;
+            }
+
             img{
                 @include m.contain(100px);
                 @include m.desktoplg{
@@ -42,14 +59,25 @@
         }
         .row{
             @include m.flex(space-between, 0);
+            @include m.tabletlg{
+                gap: 28px;
+                margin-inline: auto;
+                max-width: 550px;
+            }
             .contenido{
                 width: 57.5%;
                 @include m.desktoplg{
                     width: 53%;
                 }
+                @include m.tabletlg{
+                    order: 0;
+                }
                 p{
                     margin-top: 10px;
                     padding-left: 6.5%;
+                    @include m.tabletlg{
+                        padding-left: 0;
+                    }
                 }
             }
             .imagen{
@@ -57,8 +85,19 @@
                 @include m.desktoplg{
                     width: 42.5%;
                 }
+                @include m.tabletlg{
+                    order: 1;
+                }
                 img{
                     border-radius: 10px;
+                    @include m.tabletlg{
+                        display: block;
+                    }
+                }
+            }
+            @include m.tabletlg{
+                &>div{
+                    width: 100% !important;
                 }
             }
         }
@@ -73,10 +112,20 @@
         .row{
             @include m.flex(space-between, 0);
             position: relative;
+
+            @include m.tabletlg{
+                max-width: 550px;
+                margin-inline: auto;
+                flex-direction: column;
+                justify-content: center;
+            }
         }
         img{
             width: 100%;
             border-radius: 25px;
+            @include m.tabletlg{
+                border-radius: 10px 10px 0 0;
+            }
         }
         p{
             text-align: justify;
@@ -93,16 +142,35 @@
             @include m.desktoplg{
                 font-size: 1.3em;
             }
+            @include m.tabletlg{
+                font-size: 1.2em;
+                line-height: 1.2em;
+            }
+            @include m.tablet{
+                font-size: 1.15em;
+            }
+            @include m.telefono{
+                font-size: 1.05em;
+            }
         }
         .col{
             &:nth-child(1){
                 width: 45%;
+                @include m.tabletlg{
+                    width: 90%;
+                    margin-inline: auto;
+                }
             }
             &:nth-child(2){
-                width: 60%;
-                position: absolute;
-                top: 7%;
-                right: 0;
+                @media (min-width: v.$tablet_lg){
+                    width: 60%;
+                    position: absolute;
+                    top: 7%;
+                    right: 0;
+                }
+                @include m.tabletlg{
+                    width: 100%;
+                }
             }
             div{
                 width: 100%;
@@ -110,6 +178,9 @@
                 background: v.$blanco;
                 border-radius: 10px;
                 padding: 4rem 2.5rem;
+                @include m.tabletlg{
+                    padding: 1rem;
+                }
             }
         }
     }
@@ -121,9 +192,42 @@
     border-radius: 14px;
     padding: 2rem 5%;
 
+    &_responsive{
+        @media (min-width: v.$telefono){
+            display: none;
+        }
+    }
+
     @include m.desktop{
         background: transparent;
         border-radius: 0;
+    }
+
+    #valores{
+        @include m.telefono{
+            width: 100%;
+            max-width: 230px;
+            margin-inline: auto;
+            
+            .splide{
+                &__arrow{
+                    background: v.$azul;
+                    opacity: 1 !important;
+                    &--prev{
+                        left: -1em;
+                    }
+                    &--next{
+                        right: -1em;
+                    }
+                    svg{
+                        fill: v.$blanco;
+                    }
+                    &[disabled]{
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 
     h2{
@@ -160,6 +264,15 @@
         @include m.desktoplg{
             @include m.flex(center, 20px 7%);
         }
+        @include m.telefono{
+            display: none;
+        }
     }
 
+}
+
+.nosotros_valores{
+    @include m.desktop{
+        background: v.$azul_oscuro;
+    }
 }

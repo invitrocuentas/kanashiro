@@ -70,7 +70,7 @@ get_header();
             </div>
         </div>
     </div>
-    <div class="w-100">
+    <div class="w-100 nosotros_valores">
         <?php get_template_part('inc/valores'); ?>
     </div>
 </section>

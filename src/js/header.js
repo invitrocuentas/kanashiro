@@ -8,6 +8,12 @@
             whiteLogo = header.querySelector('[name="white_logo"]').value,
             colorLogo = header.querySelector('[name="color_logo"]').value;
 
+        if(!document.body.classList.contains('page-template-front-page')){
+            header.classList.add('scrolled');
+            logo.src = colorLogo;
+            return;
+        }
+
         let targetSectionHeight = targetSection.offsetHeight,
             halfHeight = targetSectionHeight / 2;
 

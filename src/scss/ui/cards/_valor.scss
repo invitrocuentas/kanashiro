@@ -7,6 +7,9 @@
     @include m.desktoplg{
         max-width: 150px;
     }
+    @include m.telefono{
+        margin-inline: auto;
+    }
     &>div{
         width: 100%;
     }
