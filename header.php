@@ -23,9 +23,14 @@
     <input type="hidden" name="color_logo" value="<?php echo IMG; ?>/logo-2.svg">
     
     <div class="contenedor">
-        <a href="<?php echo esc_url(home_url('/')) ?>">
-            <img src="<?php echo IMG; ?>/logo.svg" class="logo" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>">
-        </a>
+        <div class="row">
+            <a href="<?php echo esc_url(home_url('/')) ?>" style="width: fit-content;">
+                <img src="<?php echo IMG; ?>/logo.svg" class="logo" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>">
+            </a>
+            <button id="toggle">
+                <div></div><div></div>
+            </button>
+        </div>
     </div>
     <nav>
         <div class="contenedor">
@@ -34,4 +39,18 @@
     </nav>
 </header>
 
-
+<div class="menu">
+    <div class="menu_bg menu_close"></div>
+    <div class="menu_box">
+        <button class="menu_button menu_close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="w-100">
+            <?php wp_nav_menu(array('theme_location'=>'header-menu','container_class'=>'top-menus-wrapper','menu_class'=>'ul_menu')); ?>
+        </div>
+        <div class="social w-100">
+            <p>Síguenos en nuestras redes:</p>
+            <?php get_template_part('inc/redes'); ?>
+        </div>
+    </div>
+</div>

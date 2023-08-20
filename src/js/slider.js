@@ -54,7 +54,17 @@
             perPage: 3,
             perMove: 1,
             direction: 'ttb',
-            isNavigation: true
+            isNavigation: true,
+            breakpoints: {
+                1462: {
+                    height: '14rem',
+                },
+                630: {
+                    perPage: 1,
+                    height: '5rem',
+                    direction: 'ltr',
+                }
+            }
         })
 
         let mapa = new Splide('#mapa', {

@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 
 a{
     font-size: 1.1rem;
@@ -6,16 +7,30 @@ a{
 h1{
     font-size: 3.85em;
     line-height: 1.2em;
+    @include m.television{
+        font-size: 3.15em;
+    }
+    @include m.desktoplg{
+        font-size: 2.85em;
+    }
 }
 h2{
     font-size: 3.25em;
     line-height: 1.2em;
-    font-family: v.$bold;
+    @include m.television{
+        font-size: 2.925em;
+    }
+    @include m.desktoplg{
+        font-size: 2.55em;
+    }
     &.up{
         font-size: 3.6em;
     }
     &.down{
         font-size: 2em;
+        @include m.desktoplg{
+            font-size: 1.8em;
+        }
     }
 }
 h3{
@@ -23,6 +38,9 @@ h3{
     line-height: 1.2em;
     &.up{
         font-size: 2em;
+    }
+    @include m.desktoplg{
+        font-size: 1.35em;
     }
 }
 p{

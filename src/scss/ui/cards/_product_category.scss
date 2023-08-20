@@ -41,6 +41,9 @@
         text-align: center;
         margin-top: 14px;
         font-size: 1.8em;
+        @include m.television{
+            font-size: 1.6em;
+        }
     }
 
     a{

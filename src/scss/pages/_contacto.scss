@@ -25,6 +25,9 @@ section:has(#localizaciones){
     .contenido{
         width: 100%;
         max-width: 420px;
+        @include m.desktoplg{
+            max-width: 338px;
+        }
     }
     .hr{
         @include m.hr(v.$negro);
@@ -43,6 +46,9 @@ section:has(#localizaciones){
             }
             img{
                 @include m.contain(24px);
+                @include m.desktoplg{
+                    @include m.contain(22px);
+                }
             }
             div{
                 p{
@@ -52,12 +58,24 @@ section:has(#localizaciones){
                         font-size: 1.45em;
                         color: v.$azul;
                         font-weight: 600;
+                        @include m.television{
+                            font-size: 1.3em;
+                        }
+                        @include m.desktoplg{
+                            font-size: 1.15em;
+                        }
                     }
                     &:nth-child(2){
                         margin-top: 4px;
                         font-size: 1.2em;
                         font-weight: 400;
                         color: v.$azul_oscuro;
+                        @include m.television{
+                            font-size: 1.105em;
+                        }
+                        @include m.desktoplg{
+                            font-size: 1em;
+                        }
                     }
                 }
                 a{

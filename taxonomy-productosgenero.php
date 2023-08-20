@@ -53,6 +53,26 @@ $category = get_term($ID);
         </div>
     </div>
 </div>
+<div class="filter_responsive w-100">
+    <div class="contenedor">
+        <details>
+            <summary><i class="fas fa-minus"></i> <?php echo $category->name ?></summary>
+            <div class="w-100">
+                <ul>
+                    <li>
+                        <a href="<?php echo esc_url(home_url('productos')) ?>" class="active">Todos los productos</a>
+                    </li>
+                    <?php foreach ($terms as $term): ?>
+                    <?php $id_category = $term->term_id; ?>
+                    <li>
+                        <a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </details>
+    </div>
+</div>
 <?php endif; ?>
 
 <div class="productos">

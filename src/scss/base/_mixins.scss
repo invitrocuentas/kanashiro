@@ -173,6 +173,10 @@
         gap: 10px;
         flex-direction: column;
 
+        @media (max-width: v.$television){
+            gap: 7px;
+        }
+
         &__page{
             transform: none !important;
             opacity: 1 !important;
@@ -180,8 +184,47 @@
             height: 25px;
             background: none;
             border: 1px solid v.$blanco;
+
+            @media (max-width: v.$television){
+                width: 19px;
+                height: 19px;
+            }
+
             &.is-active{
                 background: v.$blanco;
+            }
+        }
+    }
+}
+
+@mixin ul_menu{
+    .ul_menu{
+        list-style: none;
+        //@include m.flex(center, 12px 10.7%);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 10.7%;
+
+        @media (max-width: v.$television){
+            gap: 12px 8%;
+        }
+
+        li{
+            a{
+                color: v.$blanco;
+                padding: 8px 12px;
+                font-family: v.$urban;
+                font-size: 1.2em;
+                transition: all .25s ease;
+
+                @media (max-width: v.$desktop_lg){
+                    padding-inline: 18px;
+                    font-size: 1.1em;
+                }
+
             }
         }
     }

@@ -32,6 +32,10 @@
         @include m.flex(center, 6px);
         align-items: flex-start;
         flex-direction: column;
+        @include m.television{
+            padding: 6px 20px;
+            max-width: 85%;
+        }
         h3{
             font-family: v.$urban;
             font-weight: 400;
@@ -43,6 +47,9 @@
         p{
             font-family: v.$urban;
             font-weight: 400;
+            @include m.desktoplg{
+                font-size: .95em;
+            }
         }
     }
 }

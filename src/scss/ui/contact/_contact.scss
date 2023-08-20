@@ -25,6 +25,17 @@
             font-size: 5em;
             position: relative;
             @include m.line(8px, v.$blanco, 215px, 5px);
+
+            @include m.television{
+                font-size: 3.7em;
+                @include m.line(6px, v.$blanco, 180px, 4px);
+            }
+
+            @include m.desktoplg{
+                font-size: 3.2em;
+                @include m.line(6px, v.$blanco, 140px, 4px);
+            }
+
             &::before{
                 left: auto;
                 transform: none;

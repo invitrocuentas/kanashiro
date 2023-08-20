@@ -66,6 +66,9 @@ textarea, button, input, select, option {
     &.xl{
         width: min(94%, 1760px);
     }
+    @include m.tablet{
+        width: min(92.5%, 1500px);
+    }
 }
 
 video{

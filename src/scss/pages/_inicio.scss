@@ -28,6 +28,12 @@ main{
                 height: 25px;
                 background: none;
                 border: 1px solid v.$blanco;
+
+                @include m.television{
+                    width: 19px;
+                    height: 19px;
+                }
+
                 &.is-active{
                     background: v.$blanco;
                 }
@@ -48,6 +54,9 @@ main{
                 font-family: v.$urban;
                 font-weight: 900;
                 font-size: 5.2vw;
+                @include m.television{
+                    font-size: 4vw;
+                }
             }
 
             &_1{
@@ -69,9 +78,11 @@ main{
             bottom: 0;
             right: 0;
             width: 60%;
+            max-height: 100%;
 
             img{
                 position: absolute;
+                max-height: 100%;
                 @include m.transition;
 
                 &.cemento{
@@ -144,10 +155,18 @@ main{
     position: relative;
     z-index: 4;
     padding-bottom: 4rem;
+    @include m.desktop{
+        margin-top: 0;
+        background-color: v.$azul_oscuro;
+        padding: 1.25rem 0;
+    }
 }
 
 .sedes{
     padding: 5rem 0;
+    @include m.desktoplg{
+        padding: 3rem 0 5rem;
+    }
     h2{
         color: v.$azul;
         position: relative;
@@ -205,7 +224,10 @@ main{
     .contenido{
         width: 100%;
         max-width: 475px;
-        margin: 0 0 50px 0;
+        margin: 0 0 5.5vh 0;
+        @include m.desktoplg{
+            max-width: 400px;
+        }
         p{
             color: v.$blanco;
             font-family: v.$urban;
@@ -215,6 +237,13 @@ main{
             font-weight: 400;
             font-size: 1.45em;
             line-height: 1.3em;
+            @include m.television{
+                font-size: 1.25em;
+            }
+            @include m.desktoplg{
+                font-size: 1.15em;
+                text-align: justify;
+            }
         }
         a{
             margin-top: 20px;
@@ -222,6 +251,14 @@ main{
             p{
                 font-weight: 600;
                 font-size: 1.2em;
+                @include m.television{
+                    font-size: 1.05em;
+                }
+            }
+            svg{
+                @include m.desktoplg{
+                    max-width: 15px;
+                }
             }
         }
     }
@@ -230,6 +267,9 @@ main{
 .categorias{
     padding-block: 7.75rem;
     position: relative;
+    @include m.desktoplg{
+        padding: 5rem 0 4.5rem;
+    }
     .contenedor{
         position: relative;
     }
@@ -261,6 +301,12 @@ main{
         margin: 0 auto;
         text-align: center;
         font-family: v.$urban;
+        @include m.television{
+            width: min(100%, 640px);
+        }
+        @include m.desktoplg{
+            width: min(100%, 590px);
+        }
     }
     h3{
         font-weight: 800;
@@ -273,6 +319,12 @@ main{
     p{
         font-weight: 400;
         font-size: 1.3em;
+        @include m.television{
+            font-size: 1.175em;
+        }
+        @include m.desktoplg{
+            font-size: 1.08em;
+        }
     }
 
     .splide{

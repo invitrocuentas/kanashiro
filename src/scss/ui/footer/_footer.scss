@@ -6,23 +6,53 @@ footer{
     padding: 3rem 0;
     .grilla{
         @include m.grid(2, 0);
+        @include m.desktoplg{
+            grid-template-columns: 100%;
+        }
     }
+
+    @include m.ul_menu;
 
     .sedes_list, .information_nav{
         border-left: 1px solid v.$blanco;
+        @include m.desktoplg{
+            border: none;
+        }
     }
 
     .sedes_list{
+        @include m.desktoplg{
+            margin-top: 26px;
+        }
         .row{
             width: 90%;
             margin: 0 0 0 auto;
             @include m.flex(space-between, 0);
+            @include m.television{
+                width: 92%;
+            }
+            @include m.desktoplg{
+                width: 100%;
+            }
             .col{
                 width: 49.25%;
+                @include m.telefono{
+                    width: 100%;
+                }
+            }
+            @include m.telefono{
+                flex-direction: column-reverse;
             }
         }
     }
     #sedes{
+        @include m.desktoplg{
+            max-width: 300px;
+            width: 100%;
+        }
+        @include m.telefono{
+            margin: 0 auto;
+        }
         .splide__slide{
             border: none !important;
             outline: none !important;
@@ -37,6 +67,9 @@ footer{
                 flex-wrap: nowrap;
                 img{
                     max-width: 23px;
+                    @include m.desktoplg{
+                        max-width: 18px;
+                    }
                 }
             }
             h4, h3, p{
@@ -48,10 +81,25 @@ footer{
                 &:nth-child(1){
                     font-size: 1.25em;
                 }
+                @include m.television{
+                    font-size: 1em;
+                    @include m.limit(2);
+                    &:nth-child(1){
+                        @include m.limit(1);
+                        font-size: 1.1em;
+                    }
+                }
             }
         }
     }
     #mapa{
+        @include m.television{
+            max-width: 240px;
+            margin: 0 0 0 auto;
+        }
+        @include m.telefono{
+            margin: 0 auto 12px;
+        }
         img{
             display: block;
             border-radius: 6px;
@@ -69,45 +117,120 @@ footer{
         margin: 0;
         @include m.flex(space-between, 0);
         align-items: stretch;
-        &>div{
-            width: 50%;   
+        @media (min-width: v.$television){
+            &>div{
+                width: 50%;
+            }
         }
+
         &_nav{
             @include m.flex(center, 0);
+            @include m.television{
+                width: 40%;
+            }
+            @include m.desktoplg{
+                width: 100%;
+                display: none;
+            }
             ul{
                 @include m.flex(center, 16px);
                 align-items: flex-start;
                 flex-direction: column;
                 width: fit-content;
                 margin-inline: auto;
+                @include m.television{
+                    gap: 14px;
+                }
                 li{
                     text-align: left;
                 }
                 a{
                     font-size: 1.3em;
+                    @include m.television{
+                        font-size: 1.1rem;
+                    }
                 }
+            }
+            @include m.tablet{
+                display: flex;
+                margin-top: 20px;
+                border-block: 1px solid v.$blanco;
+                padding-block: 1.2rem;
+                width: 95%;
+                margin-inline: auto;
+
+                .top-menus-wrapper{
+                    width: 100%;
+                    ul{
+                        width: 100%;
+                        @include m.flex(center, 10px 12%);
+                        flex-direction: unset;
+                    }
+                    a{
+                        padding: 0;
+                    }
+                }
+
             }
         }
         &_description{
+            @include m.television{
+                width: 60%;
+            }
+            @include m.desktoplg{
+                width: 100%;
+            }
             .contenido{
                 width: 96%;
                 max-width: 290px;
+                @include m.desktoplg{
+                    width: 100%;
+                    max-width: 100%;
+                    @include m.flex(space-between, 0);
+                    align-items: flex-start;
+                }
+                @include m.tablet{
+                    flex-direction: column;
+                    gap: 20px;
+                }
             }
             img{
                 width: 100%;
                 max-width: 240px;
                 margin-bottom: 20px;
+                @include m.television{
+                    max-width: 200px;
+                }
+                @include m.desktoplg{
+                    margin: 0;
+                }
+                @include m.tablet{
+                    margin: 0 auto;
+                }
             }
             p{
                 text-align: justify;
                 color: v.$blanco;
                 font-family: v.$urban;
+                @include m.desktoplg{
+                    font-size: 1em;
+                    width: calc(100% - 240px);
+                }
+                @include m.tablet{
+                    width: 100%;
+                }
             }
         }
     }
 
     .contenedor:has(.follow_me){
         margin-top: 30px;
+        @include m.telefono{
+            border-top: 1px solid v.$blanco;
+            margin-top: 10px;
+            padding-top: 20px;
+            width: 88%;
+        }
     }
 
     .follow_me{
@@ -121,7 +244,16 @@ footer{
             @include m.flex(center, 10px);
             svg{
                 max-width: 35px;
+                max-height: 35px;
+                @include m.television{
+                    max-width: 30px;
+                    max-height: 30px;
+                }
             }
+        }
+        @include m.telefono{
+            flex-direction: column;
+            gap: 6px;
         }
     }
 }
@@ -133,6 +265,17 @@ footer{
     z-index: 10;
     width: 70px;
     height: 70px;
+
+    @include m.television{
+        width: 50px;
+        height: 50px;
+    }
+    @include m.telefono{
+        width: 44px;
+        height: 44px;
+        bottom: 24px;
+        right: 24px;
+    }
 
     img{
         @include m.contain(100%);

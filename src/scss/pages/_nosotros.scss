@@ -19,6 +19,12 @@
             font-size: 1.3em;
             line-height: 1.25em;
             text-align: justify;
+            @include m.television{
+                font-size: 1.25em;
+            }
+            @include m.desktoplg{
+                font-size: 1.135em;
+            }
         }
         span{
             @include m.gigant_letters(rgba($color: #444444, $alpha: .4), 7.5vw);
@@ -29,12 +35,18 @@
 
             img{
                 @include m.contain(100px);
+                @include m.desktoplg{
+                    @include m.contain(66px);
+                }
             }
         }
         .row{
             @include m.flex(space-between, 0);
             .contenido{
                 width: 57.5%;
+                @include m.desktoplg{
+                    width: 53%;
+                }
                 p{
                     margin-top: 10px;
                     padding-left: 6.5%;
@@ -42,6 +54,9 @@
             }
             .imagen{
                 width: 39%;
+                @include m.desktoplg{
+                    width: 42.5%;
+                }
                 img{
                     border-radius: 10px;
                 }
@@ -74,6 +89,10 @@
             b, strong{
                 font-weight: 900;
             }
+
+            @include m.desktoplg{
+                font-size: 1.3em;
+            }
         }
         .col{
             &:nth-child(1){
@@ -101,6 +120,11 @@
     background-color: v.$azul_oscuro;
     border-radius: 14px;
     padding: 2rem 5%;
+
+    @include m.desktop{
+        background: transparent;
+        border-radius: 0;
+    }
 
     h2{
         color: v.$blanco;
@@ -132,6 +156,10 @@
         width: 100%;
         margin-inline: auto;
         max-width: 1100px;
+
+        @include m.desktoplg{
+            @include m.flex(center, 20px 7%);
+        }
     }
 
 }

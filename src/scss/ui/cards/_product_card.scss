@@ -7,6 +7,9 @@
     @include m.shadow(0,4px,4px,rgba($color: #000, $alpha: .25));
     padding-bottom: 1.5rem;
     overflow: hidden;
+    @include m.telefono{
+        padding-bottom: 1rem;
+    }
     &>div{
         width: 100%;
     }
@@ -25,6 +28,19 @@
         font-weight: bold;
         color: v.$negro;
         font-size: 1.35em;
+        @include m.television{
+            font-size: 1.175em;
+        }
+        @include m.desktoplg{
+            font-size: 1.1em;
+            line-height: 1.2em;
+        }
+        @include m.tabletlg{
+            font-size: 1em;
+        }
+        @include m.telefono{
+            font-size: 0.9em;
+        }
     }
     a{
         font-size: 1.05em;
@@ -42,10 +58,21 @@
             background: transparent;
             color: v.$azul_oscuro;
         }
+        @include m.television{
+            font-size: 1em;
+        }
+        @include m.telefono{
+            font-size: 14px;
+            min-height: 30px;
+            padding-inline: 8px;
+        }
     }
     &_text{
         margin-top: 14px;
         padding-inline: 1.25rem;
         text-align: center;
+        @include m.television{
+            padding-inline: .9rem;
+        }
     }
 }

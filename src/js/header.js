@@ -11,6 +11,11 @@
         let targetSectionHeight = targetSection.offsetHeight,
             halfHeight = targetSectionHeight / 2;
 
+        if(window.matchMedia("(max-width: 768px)").matches){
+            logo.src = colorLogo;
+            return
+        }
+
         if (window.scrollY >= targetSection.offsetTop + halfHeight) {
             header.classList.add('scrolled')
             logo.src = colorLogo
@@ -21,5 +26,26 @@
     }
 
     window.addEventListener('scroll', handleScroll);
+    window.onpaint = handleScroll();
+
+    if(document.querySelector('#toggle')){
+
+        let menu = document.querySelector('.menu'),
+            button = document.querySelector('#toggle'),
+            closes = Array.from(document.querySelectorAll('.menu_close'));
+
+        button.addEventListener('click', (e)=>{
+            e.preventDefault();
+            menu.classList.toggle('active');
+        })
+
+        closes.forEach(close => {
+            close.addEventListener('click', (e)=>{
+                e.preventDefault();
+                menu.classList.toggle('active');
+            })
+        })
+
+    }
 
 })();

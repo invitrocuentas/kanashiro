@@ -1,4 +1,4 @@
-<ul>
+<ul class="social_networks">
     <?php if (!empty(get_option('facebook'))) : ?>
         <li>
             <a href="<?php echo get_option('facebook') ?>" target="_blank">

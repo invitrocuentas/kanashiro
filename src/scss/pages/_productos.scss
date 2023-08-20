@@ -5,6 +5,12 @@
     padding: 3rem 0;
     .grilla{
         @include m.grid(4, 36px 20px);
+        @include m.desktop{
+            @include m.grid(3, 36px 20px);
+        }
+        @include m.tablet{
+            @include m.grid(2, 20px 16px);
+        }
     }
 }
 
@@ -186,8 +192,62 @@
     }
 }
 
+details{
+    width: 100%;max-width: 200px;
+    background: v.$azul_oscuro;
+    color: v.$blanco;
+    outline: none;
+    position: absolute;
+    top: 0;left: 0;
+    border-radius: 5px;
+    @media (min-width: v.$tablet){
+        display: none;
+    }
+    summary{
+        border-radius: 5px;
+        width: 100%;
+        padding-inline: 16px;
+        background: v.$azul;
+        min-height: 40px;
+        cursor: pointer;
+        @include m.flex(flex-start, 5px);
+        outline: none;
+        font-weight: 700;
+        &::marker{
+            display: none;
+        }
+    }
+    ul{
+        padding-block: 12px;
+        padding-inline: 30px;
+        list-style: none;
+        li:not(:last-child){
+            margin-bottom: 5px;
+        }
+    }
+    i{
+        font-size: 15px;
+        color: v.$blanco;
+    }
+    summary, a{
+        color: v.$blanco;
+        font-family: v.$urban;
+        font-size: 16px;
+    }
+}
+
 .filter{
     padding: 4rem 0 1rem;
+    @include m.tablet{
+        display: none;
+    }
+    &_responsive{
+        padding: 2rem 0 0;
+        .contenedor{
+            position: relative;
+            height: 40px;
+        }
+    }
     &_box{
         background: v.$azul;
         border-radius: 6px;
@@ -209,6 +269,12 @@
                 color: v.$azul_oscuro;
                 font-weight: bold;
             }
+            @include m.television{
+                font-size: 1.15em;
+            }
+            @include m.desktoplg{
+                font-size: 1.075em;
+            }
         }
         li{
             border-radius: 5px;
@@ -227,4 +293,7 @@
     text-align: center;
     width: 100%;
     font-size: 1.3em;
+    @include m.television{
+        font-size: 1.15em;
+    }
 }

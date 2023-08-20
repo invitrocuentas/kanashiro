@@ -6,15 +6,58 @@ header{
     top: 0;
     z-index: 10;
     @include m.transition;
+    @include m.tablet{
+        background: v.$blanco;
+    }
+    #toggle{
+        display: none;
+        background: none;
+        border: none;
+        padding: 0;
+        width: 30px;
+        padding: 6px 2px;
+        div{
+            width: 100%;
+            height: 4px;
+            background: v.$azul;
+        }
+        @include m.tablet{
+            @include m.flex(center, 5px);
+            flex-direction: column;
+        }
+    }
+    .row{
+        @include m.flex(center, 0);
+        @include m.tablet{
+            @include m.flex(space-between, 0);
+        }
+    }
     .logo{
         display: block;
         margin: 1.5rem auto;
         width: min(100%, 297px);
+        @include m.television{
+            width: min(100%, 240px);
+            margin: 1.2rem auto;
+        }
+        @include m.desktoplg{
+            width: min(100%, 210px);
+            margin: .9rem auto;
+        }
+        @include m.tablet{
+            margin: .9rem 0;
+        }
+        @include m.telefono{
+            width: min(180px, 180px);
+        }
     }
     nav{
         width: 100%;
         padding-block: 1.25rem;
         border-top: 2px solid v.$blanco;
+        @include m.tablet{
+            display: none;
+        }
     }
     &.scrolled{
         background: v.$blanco;
@@ -23,20 +66,8 @@ header{
             border-color: #444444;
         }
     }
-}
 
-.ul_menu{
-    list-style: none;
-    @include m.flex(center, 12px 10.7%);
-    li{
-        a{
-            color: v.$blanco;
-            padding: 8px 12px;
-            font-family: v.$urban;
-            font-size: 1.2em;
-            @include m.transition;
-        }
-    }
+    @include m.ul_menu;
 }
 
 header.scrolled{
@@ -59,6 +90,14 @@ header.scrolled{
     background: url(../../images/banner.jpg) no-repeat;
     background-size: cover;
     background-position: bottom right;
+
+    @include m.desktoplg{
+        height: 60vh;
+    }
+    @include m.tablet{
+        height: 46vh;
+    }
+
     h1{
         text-align: center;
         font-family: v.$urban;
@@ -74,6 +113,108 @@ header.scrolled{
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+
+            @include m.desktoplg{
+                font-size: 10vw;
+            }
+        }
+    }
+}
+
+.menu{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    @include m.transition;
+
+    &.active{
+        z-index: 100;
+    }
+
+    &_bg{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        z-index: 101;
+        height: 100%;
+        background: rgba($color: v.$negro, $alpha: .4);
+        @include m.transition;
+    }
+    &_box{
+        position: absolute;
+        @include m.transition;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: v.$blanco;
+        width: 92%;
+        max-width: 400px;
+        z-index: 102;
+        border-radius: 25px;
+        padding: 4.25rem 2rem 2.25rem;
+    }
+    &_button{
+        position: absolute;
+        top: 5px;
+        right: 0;
+        @include m.contain(44px);
+        @include m.flex(center, 0);
+        background: none;
+        border: none;
+        i{
+            color: v.$azul;
+            font-size: 20px;
+        }
+    }
+    .social{
+        margin-top: 6.5vh;
+        p{
+            font-family: v.$urban;
+            color: v.$azul;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    }
+    ul{
+        list-style: none;
+        &.ul_menu{
+            @include m.flex(center, 8px);
+            flex-direction: column;
+            a{
+                font-family: v.$urban;
+                text-align: center;
+                color: v.$negro;
+                font-weight: 900;
+                font-size: 1.2em;
+            }
+            li:not(:last-child){
+                margin-bottom: 10px;
+            }
+        }
+        &.social_networks{
+            margin-top: 7px;
+            @include m.flex(center, 8px);
+            path, svg{
+                fill: v.$azul !important;
+                @include m.contain(34px);
+            }
+        }
+    }
+
+    &:not(.active){
+        .menu{
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+            &_bg{
+                opacity: 0;
+            }
+            &_box{
+                left: 150%;
+            }
         }
     }
 }
