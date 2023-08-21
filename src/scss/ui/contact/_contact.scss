@@ -11,6 +11,7 @@
     background: url(../../images/bg_contacto.jpg) no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 
     @include m.tabletlg{
         padding-top: 4rem;
@@ -159,6 +160,11 @@
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
+                }
+                &.minus{
+                    &::before{
+                        content: '-';
+                    }
                 }
             }
             .wpcf7-not-valid-tip{

@@ -14,6 +14,15 @@ define('IMG',URL.'/images');
 define('JS',URL.'/libraries/js');
 define('CSS',URL.'/libraries/css');
 
+// eliminando el modulo de entradas de wp
+function remove_menu_items() {
+    remove_menu_page( 'edit.php' ); // Esto elimina la opción "Entradas" del menú
+    unregister_post_type( 'post' ); // Desregistrar el tipo de contenido "Entrada"
+    remove_menu_page('plugins.php'); // Plugins
+}
+add_action('admin_menu', 'remove_menu_items');
+
+
 if(!function_exists ('general_scripts')):
     function general_scripts(){
         wp_register_style('style', get_stylesheet_uri(),array(),'1.0.0','all');
@@ -67,6 +76,7 @@ if( function_exists('acf_add_options_page') ) {
         'parent_slug' => 'theme-general-settings'
     ));
 }
+
 
 //modulo de redes - get option
 require_once get_template_directory().'/inc/modulo_informacion.php';

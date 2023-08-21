@@ -34,6 +34,10 @@
             @include m.telefono{
                 font-size: 1.125em;
             }
+            &:hover{
+                background: transparent;
+                color: v.$blanco;
+            }
         }
     }
     h1{
@@ -69,6 +73,59 @@
         @include m.telefono{
             svg{
                 @include m.contain(29px);
+            }
+        }
+    }
+}
+
+.page_404{
+    min-height: 100vh;
+    background: v.$azul_oscuro;
+    @include m.flex(center, 0);
+    flex-direction: column;
+
+    h1{
+        @include m.flex(center, 4px);
+        span{
+            display: block;
+            line-height: 1em;
+            color: v.$blanco;
+            font-family: v.$urban;
+            font-weight: bold;
+            font-size: 3.25em;
+            text-shadow: 0 3px 3px rgba($color: v.$blanco, $alpha: .4);
+            &:nth-child(even){
+                color: v.$azul;
+            }
+        }
+    }
+    a{
+        color: v.$blanco;
+        text-align: center;
+        font-family: v.$urban;
+    }
+    a{
+        display: block;
+        &.back{
+            margin: 20px auto 0;
+            text-align: center;
+            background: v.$blanco;
+            border: 1px solid v.$blanco;
+            width: fit-content;
+            color: v.$azul;
+            padding: 6px 10px;
+            font-size: 1.4em;
+            font-weight: 700;
+            border-radius: 5px;
+            @include m.desktoplg{
+                font-size: 1.25em;
+            }
+            @include m.telefono{
+                font-size: 1.125em;
+            }
+            &:hover{
+                background: transparent;
+                color: v.$blanco;
             }
         }
     }

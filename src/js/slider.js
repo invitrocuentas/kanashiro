@@ -8,7 +8,15 @@
             // rewind: true,
             height: '100%',
             pagination: true,
-            arrows: false
+            arrows: false,
+            breakpoints: {
+                942: {
+                    type: 'loop',
+                    direction: 'ltr',
+                    // autoplay: true,
+                    // interval: 5000
+                }
+            }
         }).mount();
     }
 

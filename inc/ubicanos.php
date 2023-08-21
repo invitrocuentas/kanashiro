@@ -39,34 +39,47 @@
                             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 			                <li class="splide__slide">
                                 <ul class="info w-100">
+                                    <?php if(!empty(get_field('direccion'))): ?>    
                                     <li>
-                                        <img src="<?php echo IMG; ?>/sede/marker.svg">
+                                        <img src="<?php echo IMG; ?>/sede/marker.svg" title="Ubicaci&oacute;n" alt="Ubicaci&oacute;n">
                                         <div>
                                             <h3>Sede <?php echo get_the_title(); ?></h3>
                                             <p><?php echo get_field('direccion') ?></p>
                                         </div>
                                     </li>
+                                    <?php endif; ?>
+
+                                    <?php if(!empty(get_field('telefono__celular'))): ?>
                                     <li>
-                                        <img src="<?php echo IMG; ?>/sede/phone.svg">
+                                        <img src="<?php echo IMG; ?>/sede/phone.svg" title="Tel&eacute;fono" alt="Tel&eacute;fono">
                                         <div>
-                                            <h3>Teléfono / celular</h3>
+                                            <h3>Tel&eacute;fono / celular</h3>
                                             <p><?php echo get_field('telefono__celular') ?></p>
                                         </div>
                                     </li>
+                                    <?php endif; ?>
+                                    
+                                    <?php if(!empty(get_field('correo_electronico'))): ?>
                                     <li>
-                                        <img src="<?php echo IMG; ?>/sede/mail.svg">
+                                        <img src="<?php echo IMG; ?>/sede/mail.svg" title="Correo" alt="Correo">
                                         <div>
                                             <h3>Correo electrónico</h3>
-                                            <p><?php echo get_field('correo_electronico') ?></p>
+                                            <p>
+                                                <a href="mailto:<?php echo get_field('correo_electronico') ?>" title="Correo"><?php echo get_field('correo_electronico') ?></a>
+                                            </p>
                                         </div>
                                     </li>
+                                    <?php endif; ?>
+
+                                    <?php if(!empty(get_field('horario_de_atencion'))): ?>
                                     <li>
-                                        <img src="<?php echo IMG; ?>/sede/schedule.svg">
+                                        <img src="<?php echo IMG; ?>/sede/schedule.svg" title="Horario" alt="Horario">
                                         <div>
                                             <h3>Horario de atención</h3>
                                             <?php echo get_field('horario_de_atencion') ?>
                                         </div>
                                     </li>
+                                    <?php endif; ?>
                                 </ul>
                             </li>
                             <?php endwhile; ?>

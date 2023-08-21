@@ -40,6 +40,28 @@
             }
         }
     }
+
+    .pagination{
+        margin-top: 8vh;
+        a{
+            font-family: v.$urban;
+            font-weight: 700;
+            color: v.$azul_oscuro;
+            font-size: 1.2em;
+            @include m.flex(center, 5px);
+            padding: 4px;
+            &.active{
+                color: v.$azul;
+                text-decoration: underline;
+            }
+            @include m.tablet{
+                font-size: 1.1em;
+            }
+        }
+        &_links{
+            @include m.flex(center, 5px);
+        }
+    }
 }
 
 .single-product{

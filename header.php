@@ -8,7 +8,7 @@
     <?php wp_head();?>
     
     <?php if (is_404()): ?>
-    <title><?php esc_attr_e("InVitro | Página de Error"); ?></title>
+    <title><?php esc_attr_e(get_bloginfo('name')." | 404"); ?></title>
     <?php else: ?>
     <title><?php the_title();?></title>
     <?php endif; ?>
@@ -24,7 +24,7 @@
     
     <div class="contenedor">
         <div class="row">
-            <a href="<?php echo esc_url(home_url('/')) ?>" style="width: fit-content;">
+            <a href="<?php echo esc_url(home_url('/')) ?>" style="width: fit-content;" title="<?php echo get_bloginfo('name'); ?>">
                 <img src="<?php echo IMG; ?>/logo.svg" class="logo" alt="<?php echo get_bloginfo('name'); ?>" title="<?php echo get_bloginfo('name'); ?>">
             </a>
             <button id="toggle">

@@ -30,7 +30,7 @@ $wp_query = new WP_Query(array(
                     <ul>
                         <?php if( !empty(get_option('nro_1')) || !empty(get_option('nro_2')) || !empty(get_option('nro_3')) ): ?>
                         <li>
-                            <img src="<?php echo IMG; ?>/sede/phone-blue.svg" alt="Teléfono" title="Teléfono">
+                            <img src="<?php echo IMG; ?>/sede/phone-blue.svg" alt="Tel&eacute;fono" title="Tel&eacute;fono">
                             <div>
                                 <p><b>Teléfono / celular</b></p>
                                 <p>

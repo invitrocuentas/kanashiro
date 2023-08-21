@@ -16,7 +16,12 @@
 
                         <?php if (!empty(get_field('mapa_grande'))) : ?>
                             <li class="splide__slide w-100">
-                                <img src="<?php echo get_field('mapa_grande')['url'] ?>" alt="<?php echo get_field('mapa_grande')['alt'] ?>" title="<?php echo get_field('mapa_grande')['title'] ?>" width="<?php echo get_field('mapa_grande')['width'] ?>" height="<?php echo get_field('mapa_grande')['height'] ?>" loading="lazy" class="w-100">
+                                <img src="<?php echo get_field('mapa_grande')['url'] ?>" 
+                                    alt="<?php echo get_field('mapa_grande')['alt'] ?>" 
+                                    title="<?php echo get_field('mapa_grande')['title'] ?>" 
+                                    width="<?php echo get_field('mapa_grande')['width'] ?>" 
+                                    height="<?php echo get_field('mapa_grande')['height'] ?>" 
+                                    loading="lazy" class="w-100">
                             </li>
                         <?php endif; ?>
 

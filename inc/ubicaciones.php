@@ -17,7 +17,7 @@
                                 <li class="splide__slide">
                                     <ul class="info w-100">
                                         <li>
-                                            <img src="<?php echo IMG; ?>/sede/marker.svg">
+                                            <img src="<?php echo IMG; ?>/sede/marker.svg" title="Ubicaci&oacute;n" alt="Ubicaci&oacute;n">
                                             <div>
                                                 <p><b>Sede <?php echo get_the_title(); ?></b></p>
                                                 <p><?php echo get_field('direccion') ?></p>

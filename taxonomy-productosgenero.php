@@ -33,7 +33,7 @@ $category = get_term($ID);
         <div class="w-100 filter_box">
             <ul>
                 <li>
-                    <a href="<?php echo esc_url(home_url('productos')) ?>">Todos los productos</a>
+                    <a href="<?php echo esc_url(home_url('productos')) ?>" title="Todos los productos">Todos los productos</a>
                 </li>
                 <?php foreach ($terms as $term): ?>
                 <?php 
@@ -41,11 +41,11 @@ $category = get_term($ID);
                     if($id_category == $ID):
                 ?>
                     <li>
-                        <a href="<?php echo get_term_link($term); ?>" class="active"><?php echo $term->name; ?></a>
+                        <a href="<?php echo get_term_link($term); ?>" class="active" title="<?php echo $term->name; ?>"><?php echo $term->name; ?></a>
                     </li>
                 <?php else: ?>
                     <li>
-                        <a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a>
+                        <a href="<?php echo get_term_link($term); ?>" title="<?php echo $term->name; ?>"><?php echo $term->name; ?></a>
                     </li>
                 <?php endif; ?>
                 <?php endforeach; ?>
@@ -60,12 +60,12 @@ $category = get_term($ID);
             <div class="w-100">
                 <ul>
                     <li>
-                        <a href="<?php echo esc_url(home_url('productos')) ?>" class="active">Todos los productos</a>
+                        <a href="<?php echo esc_url(home_url('productos')) ?>" class="active" title="Todos los productos">Todos los productos</a>
                     </li>
                     <?php foreach ($terms as $term): ?>
                     <?php $id_category = $term->term_id; ?>
                     <li>
-                        <a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a>
+                        <a href="<?php echo get_term_link($term); ?>" title="<?php echo $term->name; ?>"><?php echo $term->name; ?></a>
                     </li>
                     <?php endforeach; ?>
                 </ul>
@@ -96,7 +96,7 @@ $category = get_term($ID);
                         // $product_excerpt = get_the_excerpt(); if (!empty($product_excerpt)): 
                         if( !empty(get_field('descripcion')) || !empty(get_field('beneficios')) ):
                     ?>
-                    <a href="<?php the_permalink(); ?>">M&aacute;s informaci&oacute;n</a>
+                    <a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">M&aacute;s informaci&oacute;n</a>
                     <?php endif; ?>
                     
                 </div>

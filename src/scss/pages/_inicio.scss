@@ -18,9 +18,40 @@ main{
         z-index: 3;
     }
 
+    @include m.tabletlg{
+        height: 100vh;
+    }
+    @include m.tablet{
+        height: 60vh;
+    }
+
+    &::after{
+        display: none;
+        content: '';
+        position: absolute;
+        height: 20vh;
+        background: v.$blanco;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        @include m.tabletlg{
+            display: block;
+            z-index: 1;
+        }
+        @include m.tablet{
+            height: 14.5vh;
+        }
+    }
+
+
     .splide{
         &__pagination{
+            padding: 0;
             right: -2em;
+            @include m.tabletlg{
+                z-index: 3;
+                bottom: 1em;
+            }
             &__page{
                 transform: none !important;
                 opacity: 1 !important;
@@ -33,10 +64,23 @@ main{
                     width: 19px;
                     height: 19px;
                 }
+                @include m.tabletlg{
+                    width: 14px;
+                    height: 14px;
+                }
 
                 &.is-active{
                     background: v.$blanco;
                 }
+
+                @include m.tabletlg{
+                    border: none;
+                    background: v.$azul_oscuro;
+                    &.is-active{
+                        background: v.$azul;
+                    }
+                }
+
             }
         }
     }
@@ -57,6 +101,9 @@ main{
                 @include m.television{
                     font-size: 4vw;
                 }
+                @include m.tabletlg{
+                    text-align: center;
+                }
             }
 
             &_1{
@@ -70,6 +117,27 @@ main{
             &_3{
                 top: 27%;
                 max-width: 58%;
+            }
+
+            @include m.tabletlg{
+                top: 5%;
+                z-index: 5;
+                left: 50%;
+                transform: translateX(-50%);
+                right: auto;
+                background: v.$gris2;
+                padding-block: 6px;
+                h2{
+                    font-size: 5.5vw;
+                }
+            }
+            @include m.tablet{
+                top: 8%;
+                width: 100%;
+                max-width: 290px;
+                h2{
+                    font-size: 6.25vw;
+                }
             }
 
         }
@@ -86,8 +154,12 @@ main{
                 @include m.transition;
 
                 &.cemento{
+                    
                     top: 45%;
                     transform: translateY(-50%);
+
+
+
                     &_1{
                         left: -13%;
                     }
@@ -99,6 +171,28 @@ main{
                     }
                     &_4{
                         left: 30%;
+                    }
+
+                    @include m.tabletlg{
+                        top: auto;
+                        transform: none;
+                        bottom: 0;
+                        width: 40%;
+
+                        &_1{
+                            left: -3%;
+                        }
+                        &_2{
+                            left: 19%;
+                        }
+                        &_3{
+                            left: auto;
+                            right: 19%;
+                        }
+                        &_4{
+                            right: -3%;
+                            left: auto;
+                        }
                     }
                 }
 
@@ -115,11 +209,32 @@ main{
                     &_3{
                         right: 0;
                     }
+
+                    @include m.tabletlg{
+                        top: auto;
+                        transform: none;
+                        bottom: 0;
+                        width: 40%;
+
+                        &_2{
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    }
+
                 }
 
                 &.fierros{
                     bottom: 0;
                     left: 20%;
+                    @include m.tabletlg{
+                        left: 50%;
+                        transform: translateX(-50%);
+                        height: 100%;
+                        width: 100%;
+                        object-fit: contain;
+                        object-position: center;
+                    }
                 }
             }
 
@@ -143,6 +258,17 @@ main{
                         transform: scale(1.26);
                     }
                 }
+            }
+
+            @include m.tabletlg{
+                left: 50%;
+                right: auto;
+                bottom: auto;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                overflow: hidden;
+                height: 72%;
             }
 
         }
@@ -198,6 +324,17 @@ main{
     @include m.flex(center, 0);
     flex-direction: column;
     padding-block: 15vh;
+
+    @include m.tabletlg{
+        padding-block: 3rem;
+        min-height: 60vh;
+        height: auto;
+        @include m.flex(flex-start, 0);
+    }
+    @include m.telefono{
+        min-height: 70vh;
+    }
+
     h2{
         width: 100%;
         color: v.$blanco;
@@ -207,9 +344,15 @@ main{
         font-weight: 700;
         @include m.line(8px, v.$blanco, 180px, 5px);
         margin-bottom: 4rem;
+        @include m.tabletlg{
+            margin-bottom: 0;
+        }
     }
     span{
         @include m.gigant_letters(rgba($color: #EFEFEF, $alpha: .2), 12vw);
+        @include m.tabletlg{
+            display: none;
+        }
     }
     .splide{
         position: absolute;
@@ -217,6 +360,63 @@ main{
         img{
             object-fit: cover;
             object-position: right;
+            @include m.tabletlg{
+                object-position: bottom right;
+            }
+            /*@include m.telefono{
+                object-fit: contain;
+            }*/
+        }
+        &__pagination{
+            padding: 0;
+            justify-content: flex-start;
+            bottom: 15vh;
+            z-index: 90;
+
+            &__page{
+                transform: none !important;
+                opacity: 1 !important;
+                width: 25px;
+                height: 25px;
+                background: none;
+                border: 1px solid v.$blanco;
+
+                @include m.television{
+                    width: 19px;
+                    height: 19px;
+                }
+                @include m.tabletlg{
+                    width: 14px;
+                    height: 14px;
+                }
+
+                &.is-active{
+                    background: v.$blanco;
+                }
+
+                @include m.tabletlg{
+                    border: none;
+                    background: v.$blanco;
+                    &.is-active{
+                        background: v.$azul;
+                    }
+                }
+
+            }
+
+            @include m.tabletlg{
+                justify-content: center;
+            }
+
+            @include m.tabletlg{
+                bottom: 20px;
+            }
+
+            width: min(88%, 1500px);
+            margin-inline: auto;
+            @include m.tablet{
+                width: min(92.5%, 1500px);
+            }
         }
     }
     &>.contenedor{
@@ -225,6 +425,10 @@ main{
         @include m.flex(space-between, 30px);
         align-items: flex-start;
         flex-direction: column;
+
+        @include m.tabletlg{
+            @include m.flex(flex-start, 3rem);
+        }
     }
     .contenido{
         width: 100%;
@@ -249,6 +453,9 @@ main{
                 font-size: 1.15em;
                 text-align: justify;
             }
+            @include m.tabletlg{
+                text-align: center;
+            }
         }
         a{
             margin-top: 20px;
@@ -263,6 +470,17 @@ main{
             svg{
                 @include m.desktoplg{
                     max-width: 15px;
+                }
+            }
+            @include m.tabletlg{
+                text-align: center;
+                justify-content: center;
+                width: fit-content;
+                margin-inline: auto;
+                background: v.$azul_oscuro;
+                padding: 6px 10px;
+                p{
+                    font-weight: 500;
                 }
             }
         }

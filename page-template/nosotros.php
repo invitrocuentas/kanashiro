@@ -38,7 +38,7 @@ get_header();
         <div class="contenedor">
             <div class="row">
                 <div class="col contenido">
-                    <span>Misión <img src="<?php echo IMG; ?>/mision.svg"></span>
+                    <span>Misión <img src="<?php echo IMG; ?>/mision.svg" title="Misi&oacute;n" alt="Misi&oacute;n"></span>
                     <p><?php echo get_field('descripcion_m') ?></p>
                 </div>
                 <div class="col imagen">
@@ -64,7 +64,7 @@ get_header();
                         loading="lazy" class="w-100">
                 </div>
                 <div class="col contenido">
-                    <span>Visión <img src="<?php echo IMG; ?>/vision.svg"></span>
+                    <span>Visión <img src="<?php echo IMG; ?>/vision.svg" title="Visi&oacute;n" alt="Visi&oacute;n"></span>
                     <p><?php echo get_field('descripcion_v') ?></p>
                 </div>
             </div>

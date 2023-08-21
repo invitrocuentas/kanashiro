@@ -142,7 +142,7 @@
                     max-width: 22px;
                 }
             }
-            h3, p{
+            a, h3, p{
                 font-family: v.$urban;
                 color: v.$blanco;
             }
@@ -156,15 +156,18 @@
                     font-size: 1.25em;
                 }
             }
-            p{
-                font-size: 1.3em;
+            a, p{
+                font-size: 1.3rem;
                 font-weight: 400;
                 line-height: 1.3em;
                 @include m.television{
-                    font-size: 1.175em;
+                    font-size: 1.175rem;
                 }
                 @include m.desktoplg{
-                    font-size: 1.1em;
+                    font-size: 1.1rem;
+                }
+                @include m.tabletlg{
+                    font-size: 1rem;
                 }
             }
         }
